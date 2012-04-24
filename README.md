@@ -18,8 +18,8 @@ Set these environment variables for Twilio:
 
 Set these environment variables for Gmail:
 
-    BOBBLE_GMAIL_TO
     BOBBLE_GMAIL_USERNAME
     BOBBLE_GMAIL_PASSWORD
+    BOBBLE_GMAIL_TO_EMAIL
 
 

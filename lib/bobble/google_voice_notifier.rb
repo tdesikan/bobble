@@ -43,7 +43,7 @@ class Bobble::GoogleVoiceNotifier
       username = ENV["BOBBLE_GVOICE_USERNAME"]
       password = ENV["BOBBLE_GVOICE_PASSWORD"]
       # TODO: support multiple numbers
-      number = ENV["BOBBLE_GVOICE_PHONENUMBER"]
+      number = ENV["BOBBLE_GVOICE_TO_PHONENUMBER"]
       numbers = [number]
 
       data = "accountType=GOOGLE&Email=#{username}&Passwd=#{password}&service=grandcentral&source=brettterpstra-CLISMS-2.0"

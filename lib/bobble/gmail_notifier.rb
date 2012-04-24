@@ -5,7 +5,7 @@ class Bobble::GmailNotifier
 
     def send(message, url)
       Pony.mail({
-                  :to => ENV["BOBBLE_GMAIL_TO"],
+                  :to => ENV["BOBBLE_GMAIL_TO_EMAIL"],
                   :via => :smtp,
                   :via_options => {
                     :address              => 'smtp.gmail.com',
