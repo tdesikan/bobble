@@ -1,3 +1,8 @@
+#
+# Google Voice Notifier
+# Adapted from: http://brettterpstra.com/sms-from-the-command-line-with-google-voice/
+#
+
 class Bobble::GoogleVoiceNotifier
   class << self
 
