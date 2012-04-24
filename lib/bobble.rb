@@ -12,7 +12,8 @@ class Bobble
 
     def check(url)
       begin
-        Net::HTTP.get(URI.parse(url))
+        response = Net::HTTP.get(URI.parse(url))
+        raise Exception.new("blank response") if response == ""
         puts "Successful!: #{url}"
       rescue Exception => e
         message = "FAILED!: #{url}"
@@ -32,4 +33,10 @@ class Bobble
 
   end
 end
+
+
+require 'bobble/twilio_reporter'
+require 'bobble/google_voice_reporter'
+require 'bobble/gmail_reporter'
+
 

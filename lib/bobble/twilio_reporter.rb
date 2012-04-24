@@ -3,7 +3,20 @@ require 'twilio-ruby'
 class Bobble::TwilioReporter
   class << self
 
+    @@client = nil
+
+    def create_client
+      return if @@client
+
+      account_sid = ENV['TWILIO_SID']
+      auth_token = ENV['TWILIO_TOKEN']
+
+      @@client = Twilio::REST::Client.new account_sid, auth_token
+    end
+    
     def report(message)
+      create_client
+
       params = {
         :from => ENV['TWILIO_PHONENUMBER'],
         :to => ENV['MY_PHONENUMBER'],

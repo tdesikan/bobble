@@ -1,3 +1,0 @@
-class Bobble::Checker
-
-end
