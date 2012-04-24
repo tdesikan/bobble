@@ -1,4 +1,4 @@
-class Bobble::GmailReporter
+class Bobble::GmailNotifier
   class << self
 
     def report(message)

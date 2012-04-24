@@ -1,4 +1,4 @@
-class Bobble::GoogleVoiceReporter
+class Bobble::GoogleVoiceNotifier
   class << self
 
     def report(message)

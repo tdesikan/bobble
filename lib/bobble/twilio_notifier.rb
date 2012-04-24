@@ -1,6 +1,6 @@
 require 'twilio-ruby'
 
-class Bobble::TwilioReporter
+class Bobble::TwilioNotifier
   class << self
 
     @@client = nil
