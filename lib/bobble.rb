@@ -20,13 +20,13 @@ class Bobble
         puts message
 
         if @@options[:twilio]
-          TwilioReporter.report(message)
+          TwilioNotifier.report(message)
         end
         if @@options[:google_voice]
-          GoogleVoiceReporter.report(message)
+          GoogleVoiceNotifier.report(message)
         end
         if @@options[:gmail]
-          GmailReporter.report(message)
+          GmailNotifier.report(message)
         end
       end
     end
@@ -35,8 +35,8 @@ class Bobble
 end
 
 
-require 'bobble/twilio_reporter'
-require 'bobble/google_voice_reporter'
-require 'bobble/gmail_reporter'
+require 'bobble/twilio_notifier'
+require 'bobble/google_voice_notifier'
+require 'bobble/gmail_notifier'
 
 
