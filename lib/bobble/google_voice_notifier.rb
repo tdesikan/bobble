@@ -35,8 +35,9 @@ class Bobble::GoogleVoiceNotifier
     def send(message)
       username = ENV["BOBBLE_GVOICE_USERNAME"]
       password = ENV["BOBBLE_GVOICE_PASSWORD"]
-      authcode = ENV["BOBBLE_GVOICE_AUTHCODE"]
-      num = ENV["BOBBLE_GVOICE_PHONENUMBER"]
+      # TODO: support multiple numbers
+      number = ENV["BOBBLE_GVOICE_PHONENUMBER"]
+      numbers = [number]
 
       data = "accountType=GOOGLE&Email=#{username}&Passwd=#{password}&service=grandcentral&source=brettterpstra-CLISMS-2.0"
       res = postit('https://www.google.com/accounts/ClientLogin',data)
@@ -48,7 +49,7 @@ class Bobble::GoogleVoiceNotifier
 
         if newres
           rnrse = newres.match(/'_rnr_se': '([^']+)'/)[1]
-          options[:numbers].each do |num|
+          numbers.each do |num|
             data = "_rnr_se=#{rnrse}&phoneNumber=#{num.strip}&text=#{message}&id="
             finalres = postit('https://www.google.com/voice/sms/send/',data,header)
 
