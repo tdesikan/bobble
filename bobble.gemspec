@@ -10,5 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/ahfarmer/bobble"
 
   s.add_dependency('twilio', '>= 3.1.0')
+  s.add_dependency('pony', '>= 1.4')
+
 end
 

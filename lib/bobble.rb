@@ -19,32 +19,28 @@ class Bobble
         message = "FAILED: #{url} - #{e.message}"
         puts message
 
-        send_notification(message)
+        send_notification(message, url)
       end
     end
 
-    def send_notification(message)
+    def send_notification(message, url)
       if @@options[:gmail]
-        GmailNotifier.send(message)
+        GmailNotifier.send(message, url)
       end
 
-      text_message = message
-      if message.length > 140
-        text_message = message[0..136] + "..."
-      end
       if @@options[:twilio]
-        TwilioNotifier.send(text_message)
-      end
-      if @@options[:google_voice]
-        GoogleVoiceNotifier.send(text_message)
+        TwilioNotifier.send(message)
       end
 
+      if @@options[:google_voice]
+        GoogleVoiceNotifier.send(message)
+      end
     end
 
   end
 end
 
-
+require 'bobble/util'
 require 'bobble/twilio_notifier'
 require 'bobble/google_voice_notifier'
 require 'bobble/gmail_notifier'

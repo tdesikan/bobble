@@ -18,4 +18,8 @@ Set these environment variables for Google Voice:
 
 Set these environment variables for Gmail:
 
+    BOBBLE_GMAIL_TO
+    BOBBLE_GMAIL_USERNAME
+    BOBBLE_GMAIL_PASSWORD
+
 

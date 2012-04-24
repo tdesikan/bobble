@@ -38,6 +38,8 @@ class Bobble::GoogleVoiceNotifier
     end
 
     def send(message)
+      message = Util.shorten_to_text_message(message)
+
       username = ENV["BOBBLE_GVOICE_USERNAME"]
       password = ENV["BOBBLE_GVOICE_PASSWORD"]
       # TODO: support multiple numbers
