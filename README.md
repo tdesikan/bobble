@@ -12,6 +12,11 @@ Set these environment variables for Twilio:
 
 Set these environment variables for Google Voice:
 
+    BOBBLE_GVOICE_USERNAME
+    BOBBLE_GVOICE_PASSWORD
+    BOBBLE_GVOICE_AUTHCODE
+    BOBBLE_GVOICE_PHONENUMBER
 
 Set these environment variables for Gmail:
+
 
