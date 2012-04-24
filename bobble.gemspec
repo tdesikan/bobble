@@ -7,5 +7,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Andrew Farmer"]
   s.email       = 'ahfarmer@gmail.com'
   s.files       = ["lib/bobble.rb"]
+  s.homepag     = "https://github.com/ahfarmer/bobble"
+
+  s.add_dependency('twilio', '>= 3.0.6')
 end
 
