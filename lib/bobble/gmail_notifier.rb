@@ -1,7 +1,7 @@
 class Bobble::GmailNotifier
   class << self
 
-    def report(message)
+    def send(message)
       # TODO
     end
 

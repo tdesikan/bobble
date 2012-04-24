@@ -14,7 +14,7 @@ class Bobble::TwilioNotifier
       @@client = Twilio::REST::Client.new account_sid, auth_token
     end
     
-    def report(message)
+    def send(message)
       create_client
 
       params = {

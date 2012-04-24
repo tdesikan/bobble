@@ -1,7 +1,7 @@
 class Bobble::GoogleVoiceNotifier
   class << self
 
-    def report(message)
+    def send(message)
       # TODO
     end
 

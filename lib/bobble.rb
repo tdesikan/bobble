@@ -20,13 +20,13 @@ class Bobble
         puts message
 
         if @@options[:twilio]
-          TwilioNotifier.report(message)
+          TwilioNotifier.send(message)
         end
         if @@options[:google_voice]
-          GoogleVoiceNotifier.report(message)
+          GoogleVoiceNotifier.send(message)
         end
         if @@options[:gmail]
-          GmailNotifier.report(message)
+          GmailNotifier.send(message)
         end
       end
     end
