@@ -31,7 +31,7 @@ class Bobble
         begin
           GmailNotifier.send(message, url)
         rescue Exception => e
-          puts "Gmail Notified failed: #{e.message}"
+          puts "Gmail Notifier failed: #{e.message}"
         end
       end
 
@@ -39,7 +39,7 @@ class Bobble
         begin
           TwilioNotifier.send(message)
         rescue Exception => e
-          puts "Twilio notified failed: #{e.message}"
+          puts "Twilio Notifier failed: #{e.message}"
         end
       end
 
@@ -47,7 +47,7 @@ class Bobble
         begin
           GoogleVoiceNotifier.send(message)
         rescue Exception => e
-          puts "Google Voice Notified failed: #{e.message}"
+          puts "Google Voice Notifier failed: #{e.message}"
         end
       end
 
@@ -56,7 +56,6 @@ class Bobble
   end
 end
 
-require 'bobble/util'
 require 'bobble/twilio_notifier'
 require 'bobble/google_voice_notifier'
 require 'bobble/gmail_notifier'

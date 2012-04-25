@@ -1,4 +1,5 @@
 require 'twilio-ruby'
+require 'bobble/util'
 
 class Bobble::TwilioNotifier
   class << self
@@ -16,7 +17,7 @@ class Bobble::TwilioNotifier
     
     def send(message)
       create_client
-      message = Util.shorten_to_text_message(message)
+      message = Bobble::Util.shorten_to_text_message(message)
 
       params = {
         :from => ENV['BOBBLE_TWILIO_FROM_PHONENUMBER'],

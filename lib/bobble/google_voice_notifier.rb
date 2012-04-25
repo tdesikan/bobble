@@ -1,8 +1,9 @@
+require 'bobble/util'
+
 #
 # Google Voice Notifier
 # Adapted from: http://brettterpstra.com/sms-from-the-command-line-with-google-voice/
 #
-
 class Bobble::GoogleVoiceNotifier
   class << self
 
@@ -38,7 +39,7 @@ class Bobble::GoogleVoiceNotifier
     end
 
     def send(message)
-      message = Util.shorten_to_text_message(message)
+      message = Bobble::Util.shorten_to_text_message(message)
 
       username = ENV["BOBBLE_GVOICE_USERNAME"]
       password = ENV["BOBBLE_GVOICE_PASSWORD"]
