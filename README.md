@@ -1,7 +1,7 @@
 BOBBLE
 ======
 
-Bobble is a ruby gem for freely pinging your favorite web services &amp; freely or cheaply getting email/SMS notifications when they&#39;re down.
+Bobble is a ruby gem for pinging your favorite web services &amp; freely or cheaply getting email/SMS notifications when they&#39;re down.
 
 Currently Bobble supports Google Voice, Gmail, and Twilio. Google Voice and Gmail are recommended - they're free!
 
@@ -48,3 +48,6 @@ Currently bobble can be configured by setting environment variables. Pick how yo
     export BOBBLE_TWILIO_TO_PHONENUMBER=<mobile number to receive notifications, i.e. +14155555555>
 
 
+Bobble will determine how you want to be notified based on which environment variables you have set.
+
+But remember - the best way to run bobble is probably by using the [bobble template](http://github.com/ahfarmer/bobble-template) and pushing it to heroku!
