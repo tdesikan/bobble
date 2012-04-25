@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "For freely pinging your favorite web services & freely or cheaply getting email/SMS notifications when they're down."
   s.authors     = ["Andrew Farmer"]
   s.email       = 'ahfarmer@gmail.com'
-  s.files       = ["lib/bobble.rb"]
+  s.files       = ["lib/bobble.rb", "lib/bobble/*"]
   s.homepage    = "https://github.com/ahfarmer/bobble"
 
   s.add_dependency('twilio', '>= 3.1.0')
