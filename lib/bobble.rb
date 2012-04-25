@@ -26,17 +26,31 @@ class Bobble
     end
 
     def send_notification(message, url)
+
       if @@options[:gmail]
-        GmailNotifier.send(message, url)
+        begin
+          GmailNotifier.send(message, url)
+        rescue Exception => e
+          puts "Gmail Notified failed: #{e.message}"
+        end
       end
 
       if @@options[:twilio]
-        TwilioNotifier.send(message)
+        begin
+          TwilioNotifier.send(message)
+        rescue Exception => e
+          puts "Twilio notified failed: #{e.message}"
+        end
       end
 
       if @@options[:google_voice]
-        GoogleVoiceNotifier.send(message)
+        begin
+          GoogleVoiceNotifier.send(message)
+        rescue Exception => e
+          puts "Google Voice Notified failed: #{e.message}"
+        end
       end
+
     end
 
   end
