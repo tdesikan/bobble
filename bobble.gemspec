@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.files       = FileList["lib/bobble.rb", "lib/bobble/*"]
   s.homepage    = "https://github.com/ahfarmer/bobble"
 
-  s.add_dependency('twilio', '>= 3.1.0')
+  s.add_dependency('twilio-ruby', '>= 3.6.0')
   s.add_dependency('pony', '>= 1.4')
 
 end
