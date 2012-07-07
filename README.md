@@ -57,7 +57,7 @@ But remember - the best way to run bobble is probably by using the [bobble templ
 Response Checking
 -----------------
 
-If you need to be ensure particular things about the response, you can specify options to check the status code, response headers, or response body.
+Response checking is for when you want success to be contingent upon the response code, headers or body having a particular value.
 
 ### Status Code ###
 
