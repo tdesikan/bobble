@@ -50,8 +50,14 @@ module Bobble
         if options[:success_header]
           options[:success_header].each do |k,v|
             header_value = response.header[k.to_s]
-            unless header_value == v
-              raise Exception.new("Response header '#{k}' should have value '#{v}' (instead is #{header_value})")
+            if v.is_a?(Regexp)
+              unless header_value =~ v
+                raise Exception.new("Response header '#{k}' should match regexp #{v} ('#{header_value}' does not match)")
+              end
+            else
+              unless header_value == v
+                raise Exception.new("Response header '#{k}' should have value '#{v}' (instead is #{header_value})")
+              end
             end
           end
         end
