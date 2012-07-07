@@ -1,3 +1,7 @@
+require 'bobble/notifier/twilio'
+require 'bobble/notifier/google_voice'
+require 'bobble/notifier/gmail'
+
 module Bobble
   class Checker
     class << self
@@ -18,7 +22,7 @@ module Bobble
       def send_notification(message, url)
         if @@options[:gmail]
           begin
-            GmailNotifier.send(message, url)
+            Notifier::Gmail.send(message, url)
           rescue Exception => e
             puts "Gmail Notifier failed: #{e.message}"
           end
@@ -26,7 +30,7 @@ module Bobble
 
         if @@options[:twilio]
           begin
-            TwilioNotifier.send(message)
+            Notifier::Twilio.send(message)
           rescue Exception => e
             puts "Twilio Notifier failed: #{e.message}"
           end
@@ -34,7 +38,7 @@ module Bobble
 
         if @@options[:google_voice]
           begin
-            GoogleVoiceNotifier.send(message)
+            Notifier::GoogleVoice.send(message)
           rescue Exception => e
             puts "Google Voice Notifier failed: #{e.message}"
           end

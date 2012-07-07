@@ -21,8 +21,4 @@ module Bobble
   end
 end
 
-require 'bobble/twilio_notifier'
-require 'bobble/google_voice_notifier'
-require 'bobble/gmail_notifier'
-
 
