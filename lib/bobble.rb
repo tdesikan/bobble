@@ -10,12 +10,12 @@ module Bobble
       :gmail => !!ENV["BOBBLE_GMAIL_USERNAME"]
     }
 
-    def options(o)
-      @@options.update(o)
+    def option(key)
+      @@options[key]
     end
 
-    def check(url)
-      Bobble::Checker.check(url)
+    def check(url, options={})
+      Bobble::Checker.check(url, options)
     end
 
   end
