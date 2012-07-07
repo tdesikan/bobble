@@ -13,7 +13,11 @@ module Bobble
           :success_status => nil,
           # Specified headers are required for the response
           # to be considered a success.
-          :success_header => nil
+          # Regex values can be specified.
+          :success_header => nil,
+          # Response body must match the specified body.
+          # Can be a regex.
+          :success_body => nil
         }.update(options)
 
         begin
@@ -58,6 +62,19 @@ module Bobble
               unless header_value == v
                 raise Exception.new("Response header '#{k}' should have value '#{v}' (instead is #{header_value})")
               end
+            end
+          end
+        end
+
+        if options[:success_body]
+          match = options[:success_body]
+          if match.is_a?(Regexp)
+            unless response.body =~ match
+              raise Exception.new("Response body should match regexp #{match}, but does not.")
+            end
+          else
+            unless response.body.strip == match.strip
+              raise Exception.new("Response body should be '#{match}', instead is '#{response.body}'")
             end
           end
         end
