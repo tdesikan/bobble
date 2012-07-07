@@ -61,11 +61,15 @@ Response checking is for when you want success to be contingent upon the respons
 
 ### Status Code ###
 
+The Bobble check will be considered a success only if the response matches the given status code.
+
     Bobble.check("http://example.com", {:success_status => 302})
 
 If no status code is specified, any non-50x status code is considered a success.
 
 ### Response Headers ###
+
+The Bobble check will be considered a success only if the response has a header with a given value.
 
     Bobble.check("http://example.com", {:success_header => {:location => "http://example.com/cake"}})
 
@@ -75,6 +79,7 @@ Can be a regex:
 
 ### Response Body ###
 
+The bobble check will be considered a success only if the response body exactly matches the `success_body` parameter.
 
     Bobble.check("http://example.com", {:success_body => "OK"})
 
