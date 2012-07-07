@@ -14,7 +14,7 @@ module Bobble
           account_sid = ENV['BOBBLE_TWILIO_SID']
           auth_token = ENV['BOBBLE_TWILIO_TOKEN']
 
-          @@client = Twilio::REST::Client.new account_sid, auth_token
+          @@client = ::Twilio::REST::Client.new account_sid, auth_token
         end
         
         def send(message)
