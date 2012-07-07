@@ -51,3 +51,34 @@ Currently bobble can be configured by setting environment variables. Pick how yo
 Bobble will determine how you want to be notified based on which environment variables you have set.
 
 But remember - the best way to run bobble is probably by using the [bobble template](http://github.com/ahfarmer/bobble-template) and pushing it to heroku!
+
+
+
+Response Checking
+-----------------
+
+If you need to be ensure particular things about the response, you can specify options to check the status code, response headers, or response body.
+
+### Status Code ###
+
+    Bobble.check("http://example.com", {:success_status => 302})
+
+If no status code is specified, any non-50x status code is considered a success.
+
+### Response Headers ###
+
+    Bobble.check("http://example.com", {:success_header => {:location => "http://example.com/cake"}})
+
+Can be a regex:
+
+    Bobble.check("http://example.com", {:success_header => {:location => /cake/}})
+
+### Response Body ###
+
+
+    Bobble.check("http://example.com", {:success_body => "OK"})
+
+Can be a regex:
+
+    Bobble.check("http://example.com", {:success_body => /happy/})
+
