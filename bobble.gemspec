@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version     = '0.0.4'
   s.date        = '2012-04-24'
   s.summary     = "Bobble"
-  s.description = "For freely pinging your favorite web services & freely or cheaply getting email/SMS notifications when they're down."
+  s.description = "For pinging your web services (any URL) & freely or cheaply getting email/SMS notifications when they're down."
   s.authors     = ["Andrew Farmer"]
   s.email       = 'ahfarmer@gmail.com'
   s.files       = FileList["lib/bobble.rb", "lib/bobble/*"]
