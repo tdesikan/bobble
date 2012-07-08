@@ -58,7 +58,7 @@ module Bobble
             newres = getit('https://www.google.com/voice',header)
 
             if newres
-              rnrse = newres.match(/'_rnr_se': '([^']+)'/)[1]
+              rnrse = CGI.escape(newres.match(/'_rnr_se': '([^']+)'/)[1])
               numbers.each do |num|
                 data = "_rnr_se=#{rnrse}&phoneNumber=#{num.strip}&text=#{message}&id="
                 finalres = postit('https://www.google.com/voice/sms/send/',data,header)
