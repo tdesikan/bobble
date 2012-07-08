@@ -87,3 +87,13 @@ Can be a regex:
 
     Bobble.check("http://example.com", {:success_body => /happy/})
 
+
+
+
+Request Headers
+---------------
+
+Sometimes you need to send specific HTTP headers to the URL you wish to check. For example, the server may respond correctly only if certain cookies are set. In such cases you can use the `request_headers` option.
+
+    Bobble.check("http://example.com", {:request_headers => {"Cookies" => "sessionid=123; active=true", "X-Forwarded-For" => "0.0.0.0"} })
+

@@ -17,11 +17,15 @@ module Bobble
           :success_header => nil,
           # Response body must match the specified body.
           # Can be a regex.
-          :success_body => nil
+          :success_body => nil,
+          # Specific HTTP request headers may be sent
+          # along with the URL to be checked.
+          # Must be a hash { "key1" => "val1", "key2 => "val2" }
+          :request_headers => nil
         }.update(options)
 
         begin
-          response = http_request(url)
+          response = http_request(url, options)
           assert_success(response, options)
           puts "Successful!: #{url}"
         rescue Exception => e
@@ -32,10 +36,17 @@ module Bobble
         end
       end
 
-      def http_request(url)
+      def http_request(url, options)
         uri = URI.parse(url)
         http = Net::HTTP.new(uri.host, uri.port)
         request = Net::HTTP::Get.new(uri.request_uri)
+
+        if options[:request_headers]
+          options[:request_headers].each do |k,v|
+            request.add_field(k,v)
+          end
+        end
+
         return http.request(request)
       end
 
