@@ -41,14 +41,13 @@ module Bobble
 
       # raises an exception if not successful
       def assert_success(response, options)
-        if response.code.to_i >= 500
-          raise Exception.new("Response status code error: #{response.code}")
-        end
 
         if options[:success_status]
           unless response.code.to_i == options[:success_status].to_i
             raise Exception.new("Response status code error. Is: #{response.code} Expected: #{options[:success_status]}")
           end
+        elsif response.code.to_i >= 500
+          raise Exception.new("Response status code error: #{response.code}")
         end
 
         if options[:success_header]
